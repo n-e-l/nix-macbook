@@ -72,6 +72,7 @@
 
       input = {
         kb_layout = "dh";
+	kb_options = "caps:super,altwin:ctrl_win";
         follow_mouse = 0;
       };
     };
