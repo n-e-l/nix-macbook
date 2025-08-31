@@ -62,6 +62,7 @@
     neofetch
     rofi-wayland
     legcord
+    widevine-cdm
     vivaldi
     firefox
     jetbrains.rust-rover
