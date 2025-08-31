@@ -6,6 +6,7 @@
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nixpkgs.config.allowUnfree = true;
 
   hardware.asahi = {
     enable = true;
@@ -71,10 +72,13 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
+  programs.zsh.enable = true;
+
   # Define a user account. Don't forget to set a password with 'passwd'.
   users.users.lauda = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable 'sudo' for the user.
+    shell = pkgs.zsh;
     packages = with pkgs; [
       neovim
     ];
@@ -83,8 +87,10 @@
   programs.firefox.enable = true;
   programs.hyprland.enable = true;
 
-  environment.systemPackages = [
-    pkgs.kitty
+  environment.systemPackages = with pkgs; [
+    git
+    neovim
+    wget
   ];
 
   # List packages installed in system profile.
