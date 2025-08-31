@@ -84,6 +84,7 @@
 
       input = {
         touchpad = {
+	  disable_while_typing = false;
           clickfinger_behavior = 1;
 	};
         kb_layout = "dh";
