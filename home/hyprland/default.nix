@@ -10,7 +10,8 @@
       ];
 
       monitor = [
-        "eDP-1,3456x2160@165,0x0,1.8"
+        "HDMI-A-1,3456x2160@165,0x0,1.875"
+        "eDP-1,3456x2160@165,2050x0,1.8"
       ];
 
       misc = {
@@ -19,11 +20,11 @@
       };
 
       workspace = [
-        "1, monitor:eDP-1"
-        "2, monitor:eDP-1"
-        "3, monitor:eDP-1"
-        "4, monitor:eDP-1"
-        "5, monitor:eDP-1"
+        "1, monitor:HDMI-A-1"
+        "2, monitor:HDMI-A-1"
+        "3, monitor:HDMI-A-1"
+        "4, monitor:HDMI-A-1"
+        "5, monitor:HDMI-A-1"
         "6, monitor:eDP-1"
         "7, monitor:eDP-1"
         "8, monitor:eDP-1"
@@ -86,6 +87,7 @@
         touchpad = {
 	  disable_while_typing = false;
           clickfinger_behavior = 1;
+	  tap-to-click = false;
 	};
         kb_layout = "dh";
 	kb_options = "caps:super,altwin:ctrl_win";

@@ -38,6 +38,7 @@
   home.sessionVariables = {
     SHELL = "${pkgs.zsh}/bin/zsh";
     BROWSER = "vivaldi";
+    PATH = "$PATH:/home/lauda/.cargo/bin";
   };
 
   xdg.mimeApps = {
@@ -53,6 +54,7 @@
   home.packages = with pkgs; [
     nix-output-monitor
     git
+    vivaldi
     kitty
     vim
     xdg-utils
@@ -63,7 +65,6 @@
     rofi-wayland
     legcord
     widevine-cdm
-    vivaldi
     firefox
     jetbrains.rust-rover
     python3

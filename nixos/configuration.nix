@@ -28,7 +28,12 @@
   # networking.hostName = "nixos"; # Define your hostname.
 
   # Configure network connections interactively with nmcli or nmtui.
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    plugins = with pkgs; [
+      networkmanager-openvpn
+    ];
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Brussels";
@@ -90,7 +95,9 @@
   environment.systemPackages = with pkgs; [
     git
     neovim
+    openvpn
     wget
+    pavucontrol
   ];
 
   # List packages installed in system profile.
