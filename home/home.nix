@@ -7,6 +7,7 @@
     ./direnv.nix
     ./hyprland
     ./neovim
+    ./kitty.nix
     ./waybar
   ];
 
@@ -61,7 +62,6 @@
     nix-output-monitor
     git
     vivaldi
-    kitty
     vim
     xdg-utils
     tigervnc
