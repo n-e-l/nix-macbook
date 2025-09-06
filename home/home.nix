@@ -51,6 +51,10 @@
     };
   };
 
+  programs.distrobox = {
+    enable = true;
+  };
+
   home.packages = with pkgs; [
     nix-output-monitor
     git
@@ -58,8 +62,13 @@
     kitty
     vim
     xdg-utils
+    tigervnc
+    remmina
     gotop
     ranger
+    grim
+    slurp
+    wl-clipboard
     wget
     neofetch
     rofi-wayland
@@ -67,6 +76,8 @@
     widevine-cdm
     firefox
     jetbrains.rust-rover
+    jetbrains.idea-ultimate
+    jetbrains.clion
     python3
   ];
 

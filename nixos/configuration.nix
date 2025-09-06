@@ -51,7 +51,7 @@
   # };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  services.xserver.enable = false;
 
   services.xserver.xkb.extraLayouts.dh = {
     description = "Colemak-DH ergo";
@@ -63,16 +63,19 @@
   services.xserver.xkb.layout = "dh";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
+  virtualisation.docker.enable = true;
+
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
   # Enable sound.
   # services.pulseaudio.enable = true;
   # OR
-  # services.pipewire = {
-  #   enable = true;
-  #   pulse.enable = true;
-  # };
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    pulse.enable = true;
+  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
@@ -82,7 +85,7 @@
   # Define a user account. Don't forget to set a password with 'passwd'.
   users.users.lauda = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable 'sudo' for the user.
+    extraGroups = [ "wheel" "docker" ]; # Enable 'sudo' for the user.
     shell = pkgs.zsh;
     packages = with pkgs; [
       neovim
@@ -93,6 +96,8 @@
   programs.hyprland.enable = true;
 
   environment.systemPackages = with pkgs; [
+    brightnessctl
+    pamixer
     git
     neovim
     openvpn

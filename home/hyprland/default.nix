@@ -5,6 +5,10 @@
     enable = true;
     settings = {
 
+      animations = {
+        enabled = false;
+      };
+
       exec-once = [
         "waybar"
       ];
@@ -40,6 +44,7 @@
         "$mod, Return, exec, kitty"
 	"$mod, Q, killactive"
         "$mod, D, exec, rofi -show drun"
+	"$mod, P, exec, grim -g \"$(slurp)\" - | wl-copy"
 
         # Move focus with mainMod + hjkl
         "$mod, m, movefocus, l"
@@ -76,6 +81,15 @@
         "$mod SHIFT, 8, movetoworkspace, 8"
         "$mod SHIFT, 9, movetoworkspace, 9"
         "$mod SHIFT, 0, movetoworkspace, 10"
+
+	# Volume
+        ", XF86AudioRaiseVolume, exec, pamixer --increase 5"
+	", XF86AudioLowerVolume, exec, pamixer --decrease 5"
+	", XF86AudioMute, exec, pamixer --toggle-mute"
+
+ 	# Brightness
+	", XF86MonBrightnessUp, exec, brightnessctl set +10%"
+	", XF86MonBrightnessDown, exec, brightnessctl set 10%-"
       ];
 
       bindm = [
