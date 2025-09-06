@@ -18,6 +18,13 @@
         "eDP-1,3456x2160@165,2050x0,1.8"
       ];
 
+      general = {
+        gaps_in = 1;
+	gaps_out = 5;
+	border_size = 1;
+	layout = "dwindle";
+      };
+
       misc = {
         disable_hyprland_logo = true;
 	disable_splash_rendering = true;
