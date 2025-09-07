@@ -5,6 +5,14 @@
     enable = true;
     settings = {
 
+      env = [
+        "GDK_SCALE,2"
+      ];
+
+      xwayland = {
+        force_zero_scaling = true;
+      };
+
       animations = {
         enabled = false;
       };
