@@ -67,6 +67,7 @@
     tigervnc
     remmina
     gotop
+    tmux
     ranger
     grim
     slurp
