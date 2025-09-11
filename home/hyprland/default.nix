@@ -44,11 +44,8 @@
       };
 
       workspace = [
-        "1, monitor:HDMI-A-1"
-        "2, monitor:HDMI-A-1"
-        "3, monitor:HDMI-A-1"
-        "4, monitor:HDMI-A-1"
-        "5, monitor:HDMI-A-1"
+	# workspace 1-5 dynamic setup dependent on whether a monitor is connected
+
         "6, monitor:eDP-1"
         "7, monitor:eDP-1"
         "8, monitor:eDP-1"
