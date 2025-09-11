@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  home.packages = with pkgs; [
+    hyprpaper
+  ];
+
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -19,6 +23,7 @@
 
       exec-once = [
         "waybar"
+	"hyprpaper"
       ];
 
       monitor = [

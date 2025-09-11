@@ -30,6 +30,17 @@
   boot.kernelParams = [
   ];
 
+  # Display manager
+  services.displayManager.ly = {
+    enable = true;
+    settings = {
+      animation = "colormix";  # or "doom", "none"
+      bigclock = "en";
+      hide_borders = true;
+      save = true;
+    };
+  };
+
   # networking.hostName = "nixos"; # Define your hostname.
 
   # Configure network connections interactively with nmcli or nmtui.
@@ -52,6 +63,11 @@
   console = {
     #font = "Lat2-Terminus16";
     useXkbConfig = true; # Load xkb keymap in tty
+  };
+
+  # Theme
+  environment.variables = {
+    GTK_THEME = "Adwaita:dark";
   };
 
   # Enable the X11 windowing system.

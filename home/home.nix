@@ -30,6 +30,7 @@
     targets = {
       kitty.enable = true;
       neovim.enable = true;
+      hyprpaper.enable = true;
     };
   };
 
@@ -63,6 +64,8 @@
     git
     vivaldi
     vim
+    zip
+    unzip
     xdg-utils
     tigervnc
     remmina
