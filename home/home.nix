@@ -42,7 +42,6 @@
   home.sessionVariables = {
     SHELL = "${pkgs.zsh}/bin/zsh";
     BROWSER = "vivaldi";
-    PATH = "$PATH:/home/lauda/.cargo/bin";
   };
 
   xdg.mimeApps = {
@@ -63,13 +62,16 @@
     nix-output-monitor
     git
     vivaldi
+    ncdu
     vim
     zip
     unzip
+    tree
     xdg-utils
     tigervnc
     remmina
     gotop
+    waylock
     tmux
     ranger
     grim

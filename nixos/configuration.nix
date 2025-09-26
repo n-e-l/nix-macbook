@@ -26,6 +26,7 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = false;
+  boot.binfmt.emulatedSystems = [ "x86_64-linux" ];
 
   boot.kernelParams = [
   ];
@@ -97,6 +98,10 @@
     pulse.enable = true;
   };
 
+  # MIDI support
+  services.udev.packages = [ pkgs.alsa-utils ];
+
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
@@ -105,7 +110,7 @@
   # Define a user account. Don't forget to set a password with 'passwd'.
   users.users.lauda = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" ]; # Enable 'sudo' for the user.
+    extraGroups = [ "wheel" "docker" "dialout" "audio" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
       neovim
@@ -116,6 +121,7 @@
   programs.hyprland.enable = true;
 
   environment.systemPackages = with pkgs; [
+    alsa-utils
     brightnessctl
     pamixer
     git
@@ -123,6 +129,7 @@
     openvpn
     wget
     pavucontrol
+    qemu
   ];
 
   # List packages installed in system profile.

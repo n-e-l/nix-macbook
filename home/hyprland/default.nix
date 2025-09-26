@@ -23,7 +23,7 @@
 
       exec-once = [
         "waybar"
-	"hyprpaper"
+		"hyprpaper"
       ];
 
       monitor = [
@@ -33,18 +33,22 @@
 
       general = {
         gaps_in = 1;
-	gaps_out = 5;
-	border_size = 1;
-	layout = "dwindle";
+		gaps_out = 5;
+		border_size = 1;
+		layout = "dwindle";
       };
 
       misc = {
         disable_hyprland_logo = true;
-	disable_splash_rendering = true;
+		disable_splash_rendering = true;
       };
 
       workspace = [
-	# workspace 1-5 dynamic setup dependent on whether a monitor is connected
+        "1, monitor:HDMI-A-1"
+        "2, monitor:HDMI-A-1"
+        "3, monitor:HDMI-A-1"
+        "4, monitor:HDMI-A-1"
+        "5, monitor:HDMI-A-1"
 
         "6, monitor:eDP-1"
         "7, monitor:eDP-1"
@@ -59,9 +63,12 @@
       bind = [
         # Application shortcuts
         "$mod, Return, exec, kitty"
-	"$mod, Q, killactive"
+		"$mod, Q, killactive"
         "$mod, D, exec, rofi -show drun"
-	"$mod, P, exec, grim -g \"$(slurp)\" - | wl-copy"
+		"$mod, P, exec, grim -g \"$(slurp)\" - | wl-copy"
+
+		# Toggle floating
+		"$mod, s, togglefloating"
 
         # Move focus with mainMod + hjkl
         "$mod, m, movefocus, l"
@@ -74,6 +81,9 @@
         "$mod SHIFT, i , movewindow, r"
         "$mod SHIFT, e, movewindow, u"
         "$mod SHIFT, n, movewindow, d"
+
+		# Switch to previous workspace
+		"$mod, TAB, workspace, previous"
 
         # Switch workspaces with mainMod + [0-9]
         "$mod, 1, workspace, 1"
@@ -99,15 +109,15 @@
         "$mod SHIFT, 9, movetoworkspace, 9"
         "$mod SHIFT, 0, movetoworkspace, 10"
 
-	# Volume
+		# Volume
         ", XF86AudioRaiseVolume, exec, pamixer --increase 5"
-	", XF86AudioLowerVolume, exec, pamixer --decrease 5"
-	", XF86AudioMute, exec, pamixer --toggle-mute"
+		", XF86AudioLowerVolume, exec, pamixer --decrease 5"
+		", XF86AudioMute, exec, pamixer --toggle-mute"
 
- 	# Brightness
-	", XF86MonBrightnessUp, exec, brightnessctl set +10%"
-	", XF86MonBrightnessDown, exec, brightnessctl set 10%-"
-      ];
+		# Brightness
+		", XF86MonBrightnessUp, exec, brightnessctl set +10%"
+		", XF86MonBrightnessDown, exec, brightnessctl set 10%-"
+	  ];
 
       bindm = [
         "$mod, mouse:272, movewindow"
@@ -116,12 +126,12 @@
 
       input = {
         touchpad = {
-	  disable_while_typing = false;
+		  disable_while_typing = false;
           clickfinger_behavior = 1;
-	  tap-to-click = false;
-	};
+		  tap-to-click = false;
+		};
         kb_layout = "dh";
-	kb_options = "caps:super,altwin:ctrl_win";
+		kb_options = "caps:super,altwin:ctrl_win";
         follow_mouse = 0;
       };
     };
