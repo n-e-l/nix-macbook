@@ -1,9 +1,21 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
+  nixpkgs.overlays = [ 
+    (final: prev: {
+      virglrenderer = prev.virglrenderer.overrideAttrs (old: {
+        src = final.fetchurl {
+          url = "https://gitlab.freedesktop.org/asahi/virglrenderer/-/archive/asahi-20250424/virglrenderer-asahi-20250424.tar.bz2";
+          hash = "sha256-9qFOsSv8o6h9nJXtMKksEaFlDP1of/LXsg3LCRL79JM=";
+        };
+        mesonFlags = old.mesonFlags ++ [ (final.lib.mesonOption "drm-renderers" "asahi-experimental") ];
+      });
+    })
+  ];
+
   imports = [
       ./hardware-configuration.nix
-    ];
+  ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
@@ -101,7 +113,6 @@
   # MIDI support
   services.udev.packages = [ pkgs.alsa-utils ];
 
-
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
@@ -121,6 +132,7 @@
   programs.hyprland.enable = true;
 
   environment.systemPackages = with pkgs; [
+	virglrenderer
     alsa-utils
     brightnessctl
     pamixer

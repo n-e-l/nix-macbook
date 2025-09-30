@@ -6,6 +6,7 @@
     stylix.homeModules.stylix
     ./direnv.nix
     ./hyprland
+	#./steam.nix
     ./neovim
     ./kitty.nix
     ./waybar
@@ -58,10 +59,21 @@
     enable = true;
   };
 
+  programs.obs-studio = {
+    enable = true;
+
+    plugins = with pkgs.obs-studio-plugins; [
+      wlrobs
+      obs-gstreamer
+      obs-vkcapture
+    ];
+  };
+
   home.packages = with pkgs; [
     nix-output-monitor
     git
     vivaldi
+	blender
     ncdu
     vim
     zip
@@ -72,6 +84,7 @@
     remmina
     gotop
     waylock
+	ffmpeg
     tmux
     ranger
     grim

@@ -38,11 +38,6 @@
 		layout = "dwindle";
       };
 
-      misc = {
-        disable_hyprland_logo = true;
-		disable_splash_rendering = true;
-      };
-
       workspace = [
         "1, monitor:HDMI-A-1"
         "2, monitor:HDMI-A-1"
@@ -54,8 +49,28 @@
         "7, monitor:eDP-1"
         "8, monitor:eDP-1"
         "9, monitor:eDP-1"
+
         "10, monitor:eDP-1"
-      ];
+      # Smart gaps / No gaps when only one window
+      "w[t1], gapsout:0, gapsin:0"    # Workspaces with only 1 tiled window
+      "w[tg1], gapsout:0, gapsin:0"   # Workspaces with only 1 tiled window in group
+      "f[1], gapsout:0, gapsin:0"     # Workspaces with only 1 window (tiled or floating)
+    ];
+    
+    windowrulev2 = [
+      # Remove borders and rounding for single tiled windows
+      "bordersize 0, floating:0, onworkspace:w[t1]"
+      "rounding 0, floating:0, onworkspace:w[t1]"
+      "bordersize 0, floating:0, onworkspace:w[tg1]"
+      "rounding 0, floating:0, onworkspace:w[tg1]"
+      "bordersize 0, floating:0, onworkspace:f[1]"
+      "rounding 0, floating:0, onworkspace:f[1]"
+    ];
+
+      misc = {
+        disable_hyprland_logo = true;
+		disable_splash_rendering = true;
+      };
 
       # Key bindings
       "$mod" =  "SUPER";
