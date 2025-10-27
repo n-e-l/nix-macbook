@@ -70,6 +70,7 @@
   };
 
   home.packages = with pkgs; [
+    gparted
     nix-output-monitor
     git
     vivaldi
@@ -81,6 +82,8 @@
     tree
     xdg-utils
     tigervnc
+	rclone
+	picard
     remmina
     gotop
     waylock
@@ -91,14 +94,17 @@
     slurp
     wl-clipboard
     wget
+	nicotine-plus
     neofetch
-    rofi-wayland
-    legcord
+	hdrop
+    rofi
     widevine-cdm
+	p7zip
     firefox
     jetbrains.rust-rover
     jetbrains.idea-ultimate
     jetbrains.clion
+	jetbrains-toolbox
     python3
   ];
 

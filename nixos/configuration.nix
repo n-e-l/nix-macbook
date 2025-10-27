@@ -35,6 +35,9 @@
     enable = true;
   };
 
+  # Allow non-root users to use FUSE
+  programs.fuse.userAllowOther = true;
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = false;
@@ -132,6 +135,7 @@
   programs.hyprland.enable = true;
 
   environment.systemPackages = with pkgs; [
+    fuse
 	virglrenderer
     alsa-utils
     brightnessctl

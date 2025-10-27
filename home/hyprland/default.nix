@@ -65,6 +65,11 @@
       "rounding 0, floating:0, onworkspace:w[tg1]"
       "bordersize 0, floating:0, onworkspace:f[1]"
       "rounding 0, floating:0, onworkspace:f[1]"
+
+	  # Dropdown
+      "float, class:(dropdown)"
+      "size 80% 60%, class:(dropdown)"
+      "center, class:(dropdown)"
     ];
 
       misc = {
@@ -81,9 +86,12 @@
 		"$mod, Q, killactive"
         "$mod, D, exec, rofi -show drun"
 		"$mod, P, exec, grim -g \"$(slurp)\" - | wl-copy"
+		"$mod, U, exec, hdrop kitty --class dropdown"
 
 		# Toggle floating
 		"$mod, s, togglefloating"
+		#"$mod, g, togglegroup"
+		#"$mod, y, movewindoworgroup, r"
 
         # Move focus with mainMod + hjkl
         "$mod, m, movefocus, l"
