@@ -101,10 +101,10 @@
     widevine-cdm
 	p7zip
     firefox
-    jetbrains.rust-rover
-    jetbrains.idea-ultimate
-    jetbrains.clion
-	jetbrains-toolbox
+    #jetbrains.rust-rover
+    #jetbrains.idea-ultimate
+    #jetbrains.clion
+	#jetbrains-toolbox
     python3
   ];
 
