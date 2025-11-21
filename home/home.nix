@@ -40,6 +40,8 @@
 
   home.stateVersion = "25.05";
 
+  services.ssh-agent.enable = true;
+
   home.sessionVariables = {
     SHELL = "${pkgs.zsh}/bin/zsh";
     BROWSER = "vivaldi";
@@ -69,8 +71,14 @@
     ];
   };
 
+  # Enable autoload
+  xdg.configFile."gdb/gdbinit".text = ''
+    set auto-load safe-path /
+  '';
+
   home.packages = with pkgs; [
     gparted
+	gdb
     nix-output-monitor
     git
     vivaldi
@@ -80,9 +88,11 @@
     zip
     unzip
     tree
+	krita
     xdg-utils
     tigervnc
 	rclone
+	zathura
 	picard
     remmina
     gotop
@@ -101,11 +111,13 @@
     widevine-cdm
 	p7zip
     firefox
-    #jetbrains.rust-rover
-    #jetbrains.idea-ultimate
-    #jetbrains.clion
-	#jetbrains-toolbox
+    jetbrains.rust-rover
+    jetbrains.idea-ultimate
+    jetbrains.clion
+	dbeaver-bin
     python3
+	tracy
+	renderdoc
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -158,8 +170,8 @@
       theme = "blinks-mag";
       plugins = [
         "git"
-	"sudo"
-	"docker"
+		"sudo"
+		"docker"
       ];
     };
 
